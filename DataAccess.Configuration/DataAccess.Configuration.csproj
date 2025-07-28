@@ -7,16 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.7" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.7" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DataAccess.Contracts\DataAccess.Contracts.csproj" />
-    <ProjectReference Include="..\DataAccess.Entities\DataAccess.Entities.csproj" />
+    <ProjectReference Include="..\DataAccess.Repositories\DataAccess.Repositories.csproj" />
   </ItemGroup>
-
-	<ItemGroup>
-		<InternalsVisibleTo Include="DataAccess.Configuration"/>
-	</ItemGroup>
-	
 </Project>
