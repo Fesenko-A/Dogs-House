@@ -18,8 +18,12 @@ namespace DataAccess.Repositories.EntityFramework {
             return entity;
         }
 
-        public async Task<DogEntity?> Get(int id) {
+        public async Task<DogEntity?> GetById(int id) {
             return await _context.Dogs.FindAsync(id);
+        }
+
+        public async Task<DogEntity?> GetByName(string name) {
+            return await _context.Dogs.FirstOrDefaultAsync(x => x.Name == name);
         }
 
         public async Task<IEnumerable<DogEntity>> GetAll(DogFilter filter) {
@@ -29,7 +33,7 @@ namespace DataAccess.Repositories.EntityFramework {
             return result;
         }
 
-        private IQueryable<DogEntity> ApplyFilter(IQueryable<DogEntity> query, DogFilter filter) {
+        private static IQueryable<DogEntity> ApplyFilter(IQueryable<DogEntity> query, DogFilter filter) {
             switch (filter.AttributeSort) {
                 case DogAttributeSort.Name:
                     query = filter.SortOrder == SortOrder.Descending
@@ -60,7 +64,7 @@ namespace DataAccess.Repositories.EntityFramework {
             return query;
         }
 
-        private async Task<IEnumerable<DogEntity>> GetPaginatedResult(IQueryable<DogEntity> query, DogFilter filter) {
+        private static async Task<IEnumerable<DogEntity>> GetPaginatedResult(IQueryable<DogEntity> query, DogFilter filter) {
             return await query.Skip((filter.PageNumber - 1) * filter.PageSize).Take(filter.PageSize).ToListAsync();
         }
     }
