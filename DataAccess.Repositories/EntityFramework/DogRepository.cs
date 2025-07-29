@@ -52,8 +52,8 @@ namespace DataAccess.Repositories.EntityFramework {
                     break;
                 case DogAttributeSort.Weight:
                     query = filter.SortOrder == SortOrder.Descending
-                        ? query.OrderByDescending(x => x.Weigth)
-                        : query.OrderBy(x => x.Weigth);
+                        ? query.OrderByDescending(x => x.Weight)
+                        : query.OrderBy(x => x.Weight);
                     break;
                 case null:
                     query = filter.SortOrder == SortOrder.Descending

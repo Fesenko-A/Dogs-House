@@ -4,6 +4,6 @@
         public required string Name { get; set; }
         public required string Color { get; set; }
         public required int TailLength { get; set; }
-        public required int Weigth { get; set; }
+        public required int Weight { get; set; }
     }
 }
