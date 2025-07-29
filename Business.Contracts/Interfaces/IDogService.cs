@@ -6,6 +6,6 @@ namespace Business.Contracts.Interfaces {
     public interface IDogService {
         Task<DogDto> Get(int id);
         Task<IEnumerable<DogDto>> GetAll(DogFilter filter);
-        Task<DogDto> Add(DogCreateRequest request);
+        Task<DogDto> Add(DogAddRequest request);
     }
 }

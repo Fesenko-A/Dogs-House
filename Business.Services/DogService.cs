@@ -15,7 +15,7 @@ namespace Business.Services {
             _repository = repository;
         }
 
-        public async Task<DogDto> Add(DogCreateRequest request) {
+        public async Task<DogDto> Add(DogAddRequest request) {
             var existingDog = await _repository.GetByName(request.Name);
             if (existingDog != null)
                 throw new AlreadyExistsException(typeof(Dog));
