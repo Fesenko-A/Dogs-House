@@ -1,3 +1,4 @@
+using Business.Configuration;
 using DataAccess.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
     ?? throw new InvalidOperationException("Connection string is not specified.");
 
 builder.Services.AddDataAccess(connectionString);
+builder.Services.AddBusinessLogic();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
