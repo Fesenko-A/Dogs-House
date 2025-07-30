@@ -1,19 +1,18 @@
 ﻿namespace Shared.Filters {
-    public record DogFilter {
-        public DogAttributeSort? AttributeSort { get; init; }
-        public int PageNumber { get; init; }
-        public int PageSize { get; init; }
-        public SortOrder SortOrder { get; init; }
+    public class DogFilter {
+        public DogAttributeSort? AttributeSort { get; set; }
+        public SortOrder? SortOrder { get; set; }
 
-        public DogFilter(
-            DogAttributeSort? attributeSort = null,
-            int pageNumber = 1,
-            int pageSize = 5,
-            SortOrder sortOrder = SortOrder.Asc) {
-            AttributeSort = attributeSort;
-            PageNumber = pageNumber <= 0 ? 1 : pageNumber;
-            PageSize = pageSize <= 0 ? 5 : pageSize;
-            SortOrder = sortOrder;
+        private int _pageNumber = 1;
+        public int PageNumber {
+            get => _pageNumber <= 0 ? 1 : _pageNumber;
+            set => _pageNumber = value;
+        }
+
+        private int _pageSize = 5;
+        public int PageSize {
+            get => _pageSize <= 0 ? 5 : _pageSize;
+            set => _pageSize = value;
         }
     }
 }

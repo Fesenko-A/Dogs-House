@@ -36,7 +36,10 @@ namespace Tests.Integration {
 		[Fact]
 		public async Task GetAll_DogsCustomPagination_ReturnsDogs() {
             // Arrange
-            DogFilter filter = new DogFilter(pageNumber: 2, pageSize: 3);
+            DogFilter filter = new DogFilter {
+                PageSize = 3,
+                PageNumber = 2
+            };
 
             // Act
             var result = await _dogService.GetAll(filter);
@@ -53,7 +56,10 @@ namespace Tests.Integration {
         [Fact]
         public async Task GetAll_DogsOrderByNameDesc_ReturnsDogs() {
             // Arrange
-            DogFilter filter = new DogFilter(sortOrder: SortOrder.Desc, attributeSort: DogAttributeSort.Name);
+            DogFilter filter = new DogFilter {
+                SortOrder = SortOrder.Desc,
+                AttributeSort = DogAttributeSort.Name,
+            };
 
             // Act
             var result = await _dogService.GetAll(filter);
@@ -71,11 +77,12 @@ namespace Tests.Integration {
         [Fact]
         public async Task GetAll_DogsOrderByWeightAscCustomPagination_ReturnsDogs() {
             // Arrange
-            DogFilter filter = new DogFilter(
-                sortOrder: SortOrder.Asc, 
-                attributeSort: DogAttributeSort.Weight,
-                pageNumber: 4,
-                pageSize: 4);
+            DogFilter filter = new DogFilter {
+                SortOrder = SortOrder.Asc,
+                AttributeSort = DogAttributeSort.Weight,
+                PageNumber = 4,
+                PageSize = 4
+            };
 
             // Act
             var result = await _dogService.GetAll(filter);
