@@ -36,27 +36,27 @@ namespace DataAccess.Repositories.EntityFramework {
         private static IQueryable<DogEntity> ApplyFilter(IQueryable<DogEntity> query, DogFilter filter) {
             switch (filter.AttributeSort) {
                 case DogAttributeSort.Name:
-                    query = filter.SortOrder == SortOrder.Descending
+                    query = filter.SortOrder == SortOrder.Desc
                         ? query.OrderByDescending(x => x.Name)
                         : query.OrderBy(x => x.Name);
                     break;
                 case DogAttributeSort.Color:
-                    query = filter.SortOrder == SortOrder.Descending
+                    query = filter.SortOrder == SortOrder.Desc
                         ? query.OrderByDescending(x => x.Color)
                         : query.OrderBy(x => x.Color);
                     break;
                 case DogAttributeSort.TailLength:
-                    query = filter.SortOrder == SortOrder.Descending
+                    query = filter.SortOrder == SortOrder.Desc
                         ? query.OrderByDescending(x => x.TailLength)
                         : query.OrderBy(x => x.TailLength);
                     break;
                 case DogAttributeSort.Weight:
-                    query = filter.SortOrder == SortOrder.Descending
+                    query = filter.SortOrder == SortOrder.Desc
                         ? query.OrderByDescending(x => x.Weight)
                         : query.OrderBy(x => x.Weight);
                     break;
                 case null:
-                    query = filter.SortOrder == SortOrder.Descending
+                    query = filter.SortOrder == SortOrder.Desc
                         ? query.OrderByDescending(x => x.Id)
                         : query.OrderBy(x => x.Id);
                     break;

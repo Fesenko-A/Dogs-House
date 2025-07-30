@@ -19,6 +19,7 @@
 
 	<ItemGroup>
 		<InternalsVisibleTo Include="DataAccess.Configuration" />
+		<InternalsVisibleTo Include="Tests"/>
 	</ItemGroup>
 	
 </Project>

@@ -9,7 +9,7 @@
             DogAttributeSort? attributeSort = null,
             int pageNumber = 1,
             int pageSize = 5,
-            SortOrder sortOrder = SortOrder.Ascending) {
+            SortOrder sortOrder = SortOrder.Asc) {
             AttributeSort = attributeSort;
             PageNumber = pageNumber <= 0 ? 1 : pageNumber;
             PageSize = pageSize <= 0 ? 5 : pageSize;

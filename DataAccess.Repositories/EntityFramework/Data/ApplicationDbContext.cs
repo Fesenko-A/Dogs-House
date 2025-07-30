@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories.EntityFramework.Data {
-    internal class ApplicationDbContext : DbContext {
+    public class ApplicationDbContext : DbContext {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<DogEntity> Dogs { get; set; }

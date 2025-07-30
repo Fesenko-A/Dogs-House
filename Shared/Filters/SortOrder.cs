@@ -1,6 +1,6 @@
 ﻿namespace Shared.Filters {
     public enum SortOrder {
-        Ascending,
-        Descending
+        Asc,
+        Desc
     }
 }
